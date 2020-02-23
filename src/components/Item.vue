@@ -29,6 +29,7 @@ export default {
   height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     width: 25vw;

@@ -1,7 +1,12 @@
 <template>
   <div :class="[{ flexStart: step === 1 }, 'wrapper']">
     <transition name="slide">
-      <img src="./assets/logo.png" class="logo" v-if="step === 1" />
+      <img
+        src="./assets/logo.png"
+        class="logo"
+        v-if="step === 1"
+        @click="goToMainPage"
+      />
     </transition>
     <transition name="fade">
       <Background v-if="step === 0" />
@@ -20,7 +25,8 @@
         @click.native="handleModalOpen(item)"
       />
     </div>
-    <Modal v-if="modalOpen" @closeModal="modalOpen = false" />
+    <div class="loader" v-if="step === 1 && loading" />
+    <Modal v-if="modalOpen" :item="modalItem" @closeModal="modalOpen = false" />
   </div>
 </template>
 
@@ -48,6 +54,7 @@ export default {
   data() {
     return {
       modalOpen: false,
+      modalItem: null,
       loading: false,
       step: 0,
       searchValue: '',
@@ -57,22 +64,28 @@ export default {
   methods: {
     handleModalOpen(item) {
       this.modalOpen = true;
+      this.modalItem = item;
       console.log(item);
+    },
+    goToMainPage() {
+      this.step = 0;
     },
     // eslint-disable-next-line
     handleInput: debounce(function() {
       this.loading = true;
       console.log(this.searchValue);
-      axios
-        .get(`${API}?q=${this.searchValue}&media_type=image`)
-        .then((response) => {
-          this.results = response.data.collection.items;
-          this.loading = false;
-          this.step = 1;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      if (this.searchValue) {
+        axios
+          .get(`${API}?q=${this.searchValue}&media_type=image`)
+          .then((response) => {
+            this.results = response.data.collection.items;
+            this.loading = false;
+            this.step = 1;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     }, 1000),
   },
 };
@@ -128,11 +141,45 @@ body {
   }
 }
 
+.loader {
+  margin-top: 100px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+
+  @media (min-width: 768px) {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.loader:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid darkcyan;
+  border-color: darkcyan transparent darkcyan transparent;
+  animation: loading 1.2s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .logo {
   position: absolute;
   top: 15px;
   height: 2rem;
   width: 9rem;
+  cursor: pointer;
 }
 
 .results {

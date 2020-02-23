@@ -2,15 +2,12 @@
   <div class="outerWrapper">
     <div class="innerWrapper">
       <div class="photo">
-        <img src="../assets/logo.png" />
+        <img :src="photo" />
       </div>
       <div class="description">
-        <h2 class="title">Lorem, ipsum.</h2>
+        <h2 class="title">{{ title }}</h2>
         <p class="description">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-          facilis libero accusantium dolorem ipsum veniam, tempora est
-          reprehenderit, cumque doloribus eos, sequi harum facere quos
-          repellendus. Unde ducimus harum ipsam.
+          {{ description }}
         </p>
       </div>
     </div>
@@ -22,6 +19,24 @@
 <script>
 export default {
   name: 'Modal',
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      photo: null,
+      title: null,
+      description: null,
+    };
+  },
+  mounted() {
+    this.photo = this.item.links[0].href;
+    this.title = this.item.data[0].title;
+    this.description = this.item.data[0].description.substring(0, 500);
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -32,6 +47,17 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+
+    @media (min-width: 1024px) {
+      max-height: 70%;
+      width: 60%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      box-shadow: 0 30px 30px -10px rgba(0, 0, 0, 0.3);
+    }
   }
 
   .close {
@@ -55,9 +81,18 @@ export default {
     height: 100%;
     padding: 50px;
 
+    @media (min-width: 1024px) {
+      flex-direction: row;
+
+      .photo {
+        min-width: 50%;
+        margin-right: 50px;
+      }
+    }
+
     .photo {
-      width: 100%;
-      height: auto;
+      max-width: auto;
+      max-height: auto;
       background: black;
 
       img {
@@ -67,6 +102,13 @@ export default {
 
     .description {
       color: #333;
+      text-align: center;
+    }
+
+    .title {
+      color: darkcyan;
+      text-align: center;
+      margin-bottom: 20px;
     }
   }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="claimWrapper">
-    <h1 class="claim">SPACER</h1>
+    <h1 class="claim">COSMOS</h1>
     <p class="subclaim">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, veritatis.
     </p>
@@ -29,7 +29,7 @@ export default {
   font-size: 50px;
   margin: 0;
 
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     font-size: 80px;
   }
 
@@ -43,7 +43,7 @@ export default {
   font-size: 13px;
   font-weight: 400;
 
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     font-size: 17px;
     width: 500px;
     line-height: 1;

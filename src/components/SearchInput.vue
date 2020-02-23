@@ -3,6 +3,7 @@
     id="search"
     name="search"
     placeholder="Search"
+    :class="{ dark }"
     :value="value"
     @input="handleChange"
   />
@@ -14,6 +15,10 @@ export default {
     value: {
       type: String,
       required: true,
+    },
+    dark: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
@@ -51,4 +56,14 @@ input {
     font-weight: 400;
   }
 }
+
+.dark {
+  color: darkcyan;
+  border-bottom-color: darkcyan;
+
+  &:focus {
+    box-shadow: 0 12px 20px -12px rgba(darkcyan, 0.5);
+  }
+}
+
 </style>

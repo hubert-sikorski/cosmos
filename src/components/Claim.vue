@@ -1,11 +1,12 @@
+/* eslint-disable */
 <template>
   <div class="claimWrapper">
     <h1 class="claim">COSMOS</h1>
     <p class="subclaim">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, veritatis.
+      Explore the most out of this planet pictures straight from the NASA
     </p>
     <p class="subclaim">
-      Lorem ipsum dolor sit amet.
+      The outer space in your hands
     </p>
   </div>
 </template>

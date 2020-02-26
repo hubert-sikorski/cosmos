@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div :class="[{ flexStart: step === 1 }, 'wrapper']">
     <transition name="slide">
@@ -154,7 +155,7 @@ body {
 }
 
 .loader:after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 64px;
   height: 64px;
@@ -188,7 +189,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     grid-gap: 1px;
   }
 }

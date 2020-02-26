@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <input
     id="search"
@@ -65,5 +66,4 @@ input {
     box-shadow: 0 12px 20px -12px rgba(darkcyan, 0.5);
   }
 }
-
 </style>

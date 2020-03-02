@@ -66,7 +66,6 @@ export default {
     handleModalOpen(item) {
       this.modalOpen = true;
       this.modalItem = item;
-      console.log(item);
     },
     goToMainPage() {
       this.step = 0;
@@ -74,7 +73,6 @@ export default {
     // eslint-disable-next-line
     handleInput: debounce(function() {
       this.loading = true;
-      console.log(this.searchValue);
       if (this.searchValue) {
         axios
           .get(`${API}?q=${this.searchValue}&media_type=image`)
@@ -84,7 +82,7 @@ export default {
             this.step = 1;
           })
           .catch((error) => {
-            console.log(error);
+            Window.alert(error);
           });
       }
     }, 1000),

@@ -1,29 +1,12 @@
-# Cosmos
+# Cosmos - ![mycosmos.surge.sh](http://mycosmos.surge.sh)
 
-## Project setup
-```
-npm install
-```
+Ever wondered what secrets NASA keeps from us? Well, now you have a chance to find
+out! This app uses NASA API to dynamically show images straight from world's most
+famous Space Agency's database.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Version history
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Version 1.0
+  - Created core components
+  - Applied styling
+  - Requests to NASA API

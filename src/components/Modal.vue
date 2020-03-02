@@ -87,17 +87,20 @@ export default {
 
     .photo {
       max-width: 50%;
-      margin-right: 3rem;
+      margin-right: 4rem;
     }
   }
 
   .photo {
     max-width: auto;
     height: auto;
-    margin-bottom: 2rem;
 
     img {
       width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      margin-bottom: 2rem;
     }
   }
 

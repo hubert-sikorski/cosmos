@@ -1,4 +1,4 @@
-# Cosmos - ![mycosmos.surge.sh](http://mycosmos.surge.sh)
+# Cosmos - [mycosmos.surge.sh](http://mycosmos.surge.sh)
 
 Ever wondered what secrets NASA keeps from us? Well, now you have a chance to find
 out! This app uses NASA API to dynamically show images straight from world's most
